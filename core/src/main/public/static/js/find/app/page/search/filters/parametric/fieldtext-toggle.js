@@ -17,6 +17,11 @@ define([
 		initialize: function (options) {
 			this.queryModel = options.queryModel;
 			this.queryState = options.queryState;
+
+			this.toggleModel = new Backbone.Model({
+				field: '/DOCUMENT/AUTHOR',
+				value: 'SIMONA'
+			})
 		},
 
 		render: function() {
@@ -29,6 +34,7 @@ define([
 
 		toggle: function() {
 			console.log("Input was clicked");
+			this.queryState.selectedParametricValues.add(this.toggleModel)
 		}
 	});
 
