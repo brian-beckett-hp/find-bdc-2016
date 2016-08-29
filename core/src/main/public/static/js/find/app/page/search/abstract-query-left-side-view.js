@@ -130,7 +130,6 @@ define([
             });
 
             this.fieldtextToggleView = new FieldtextToggleView({
-                queryModel: options.queryModel,
                 queryState: options.queryState
             })
 

@@ -15,7 +15,6 @@ define([
 		template: _.template(template)(),
 
 		initialize: function (options) {
-			this.queryModel = options.queryModel;
 			this.queryState = options.queryState;
 
 			this.toggleModel = new Backbone.Model({
@@ -35,8 +34,6 @@ define([
 		},
 
 		toggle: function() {
-			console.log("Input was clicked");
-			
 			if (this.enabled) {
 				this.queryState.selectedParametricValues.remove(this.toggleModel)
 			} else {
