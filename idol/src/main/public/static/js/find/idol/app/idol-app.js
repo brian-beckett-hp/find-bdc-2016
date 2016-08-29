@@ -49,6 +49,12 @@ define([
                     icon: 'hp-icon hp-fw hp-info',
                     title: i18n['app.about'],
                     order: 1
+                },
+                test: {
+                    Constructor: AboutPage,
+                    icon: 'hp-icon hp-fw hp-info',
+                    title: "Test page",
+                    order: 2
                 }
             };
 
