@@ -11,6 +11,7 @@ define([
     'find/app/page/search/filters/parametric/parametric-view',
     'find/app/page/search/filters/parametric/numeric-parametric-view',
     'find/app/page/search/filters/parametric/numeric-parametric-field-view',
+    'find/app/page/search/filters/parametric/fieldtext-toggle',
     'find/app/util/text-input',
     'find/app/util/collapsible',
     'find/app/util/filtering-collection',
@@ -19,7 +20,7 @@ define([
     'find/app/configuration',
     'i18n!find/nls/bundle',
     'i18n!find/nls/indexes'
-], function(Backbone, $, _, DateView, ParametricView, NumericParametricView, NumericParametricFieldView,
+], function(Backbone, $, _, DateView, ParametricView, NumericParametricView, NumericParametricFieldView, FieldtextToggleView,
             TextInput, Collapsible, FilteringCollection, prettifyFieldName, ParametricDisplayCollection, configuration, i18n, i18nIndexes) {
     "use strict";
 
@@ -128,6 +129,10 @@ define([
                 displayCollection: this.parametricDisplayCollection
             });
 
+            this.fieldtextToggleView = new FieldtextToggleView({
+                queryState: options.queryState
+            })
+
             this.collapsed = {
                 dates: false,
                 indexes: false
@@ -167,6 +172,7 @@ define([
         render: function() {
             //noinspection JSUnresolvedVariable
             this.$el.empty()
+                .append(this.fieldtextToggleView.$el)
                 .append(this.filterInput.$el)
                 .append(this.$emptyMessage)
                 .append(this.indexesViewWrapper.$el)
@@ -175,6 +181,7 @@ define([
                 .append(this.dateParametricView.$el)
                 .append(this.parametricView.$el);
 
+            this.fieldtextToggleView.render();
             this.filterInput.render();
             this.indexesViewWrapper.render();
             this.numericParametricView.render();
