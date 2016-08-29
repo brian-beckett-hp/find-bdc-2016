@@ -11,9 +11,10 @@ define([
     'find/idol/app/idol-navigation',
     'find/idol/app/page/idol-find-search',
     'find/idol/app/page/find-about-page',
+    'find/idol/app/page/newpage/newpage',
     'find/app/page/find-settings-page',
     'i18n!find/nls/bundle'
-], function(BaseApp, _, configuration, SavedSnapshotCollection, Navigation, FindSearch, AboutPage, SettingsPage, i18n) {
+], function(BaseApp, _, configuration, SavedSnapshotCollection, Navigation, FindSearch, AboutPage, NewPage, SettingsPage, i18n) {
 
     'use strict';
 
@@ -49,6 +50,12 @@ define([
                     icon: 'hp-icon hp-fw hp-info',
                     title: i18n['app.about'],
                     order: 1
+                },
+                test: {
+                    Constructor: NewPage,
+                    icon: 'hp-icon hp-fw hp-info',
+                    title: "Test page",
+                    order: 2
                 }
             };
 
