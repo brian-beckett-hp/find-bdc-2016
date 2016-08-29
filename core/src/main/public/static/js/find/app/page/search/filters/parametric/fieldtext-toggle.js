@@ -22,6 +22,8 @@ define([
 				field: '/DOCUMENT/AUTHOR',
 				value: 'SIMONA'
 			})
+
+			this.enabled = false;
 		},
 
 		render: function() {
@@ -34,7 +36,14 @@ define([
 
 		toggle: function() {
 			console.log("Input was clicked");
-			this.queryState.selectedParametricValues.add(this.toggleModel)
+			
+			if (this.enabled) {
+				this.queryState.selectedParametricValues.remove(this.toggleModel)
+			} else {
+				this.queryState.selectedParametricValues.add(this.toggleModel)
+			}
+
+			this.enabled = !this.enabled;
 		}
 	});
 
