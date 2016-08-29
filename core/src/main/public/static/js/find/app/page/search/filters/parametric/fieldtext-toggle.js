@@ -21,6 +21,14 @@ define([
 
 		render: function() {
 			this.$el.html(this.template)
+		},
+
+		events: {
+			'click .toggleFieldtext': 'toggle'
+		},
+
+		toggle: function() {
+			console.log("Input was clicked");
 		}
 	});
 
