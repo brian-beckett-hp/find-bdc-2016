@@ -7,8 +7,9 @@ define([
     'underscore',
     'find/app/page/search/results/add-links-to-summary',
     'find/app/util/document-mime-types',
-    'text!find/templates/app/page/search/results/results-container.html'
-], function(_, addLinksToSummary, documentMimeTypes, resultsTemplate) {
+    'text!find/templates/app/page/search/results/results-container.html',
+    'text!find/templates/app/page/search/results/new-results-container.html'
+], function(_, addLinksToSummary, documentMimeTypes, resultsTemplate, newTemplate) {
 
     function getContentTypeClass(model) {
         var contentType = model.get('contentType') || '';
@@ -39,6 +40,13 @@ define([
      * one predicate.
      */
     return [
+        {
+            template: _.template(newTemplate),
+            data: defaultData,
+            predicate: function(model, isPromotion) {
+                return Boolean(model.get('index') === "TestData")
+            }
+        },
         {
             template: _.template(resultsTemplate),
             data: defaultData,
